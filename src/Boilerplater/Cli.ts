@@ -11,7 +11,6 @@ import { getAppsList } from "../utilities/getAppList";
 import { Command } from "./Command";
 
 export default class Cli {
-
   appsList = getAppsList();
   appName = "";
   totalSteps = 0;
@@ -32,48 +31,48 @@ export default class Cli {
   async pickApp() {
     const disposables: vscode.Disposable[] = [];
 
-    const openInInteractiveBtn = {
+    const openInWebviewBtn = {
       iconPath: new vscode.ThemeIcon("link-external"),
-      tooltip: "Open in interactive mode",
+      tooltip: "Open in Webview mode",
     };
 
     const pick = await new Promise((resolve) => {
       let isResolved = false;
-      const quickPick = vscode.window.createQuickPick();
-      quickPick.title = "Boilerplater";
-      quickPick.placeholder = "Please Select an App";
-      quickPick.items = this.appsList.map((app) => ({ label: app.appName }));
-      quickPick.buttons = [openInInteractiveBtn];
-      quickPick.matchOnDescription = false;
-      quickPick.canSelectMany = false;
-      quickPick.matchOnDetail = false;
+      const cli = vscode.window.createQuickPick();
+      cli.title = "Boilerplater";
+      cli.placeholder = "Please Select an App";
+      cli.items = this.appsList.map((app) => ({ label: app.appName }));
+      cli.buttons = [openInWebviewBtn];
+      cli.matchOnDescription = false;
+      cli.canSelectMany = false;
+      cli.matchOnDetail = false;
 
       disposables.push(
-        quickPick.onDidAccept(() => {
-          const selection = quickPick.activeItems[0];
+        cli.onDidAccept(() => {
+          const selection = cli.activeItems[0];
           if (!isResolved) {
             resolve(selection);
             isResolved = true;
           }
-          quickPick.dispose();
+          cli.dispose();
         }),
-        quickPick.onDidHide(() => {
+        cli.onDidHide(() => {
           if (!isResolved) {
             resolve(undefined);
             isResolved = true;
           }
-          quickPick.dispose();
+          cli.dispose();
         }),
-        quickPick.onDidTriggerButton((item) => {
+        cli.onDidTriggerButton((item) => {
           // resolve(quickPick.activeItems[0].label); // resolve selected app name
           vscode.commands.executeCommand(Commands.BOILERPLATER_CLI);
           resolve(undefined);
           isResolved = true;
-          quickPick.dispose();
+          cli.dispose();
         })
       );
 
-      quickPick.show();
+      cli.show();
     });
 
     disposables.forEach((d) => d.dispose());
@@ -305,12 +304,5 @@ export default class Cli {
     )
       return fieldProps.errors?.pattern || "Invalid Pattern.";
     return undefined;
-  }
-
-  shouldResume() {
-    // Could show a notification with the option to resume.
-    return new Promise<boolean>((resolve, reject) => {
-      // noop
-    });
   }
 }
