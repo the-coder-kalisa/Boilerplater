@@ -1,0 +1,107 @@
+:root {
+  --container-padding: 20px;
+  --input-padding-vertical: 6px;
+  --input-padding-horizontal: 4px;
+  --input-margin-vertical: 4px;
+  --input-margin-horizontal: 0;
+}
+
+body {
+  padding: 0;
+  color: var(--vscode-foreground);
+  font-size: var(--vscode-font-size);
+  font-weight: var(--vscode-font-weight);
+  font-family: var(--vscode-font-family);
+  background-color: var(--vscode-editor-background);
+  --input-height: 30 !important;
+  height: 100vh;
+}
+
+body>* {
+  margin-block-start: var(--input-margin-vertical);
+  margin-block-end: var(--input-margin-vertical);
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.app-card:hover {
+  background: var(--vscode-list-dropBackground);
+}
+
+.app-card.selected {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+}
+
+.app-card:hover .thumbnail,
+.app-card.selected .thumbnail {
+  background: #00000042;
+}
+
+.app-card .thumbnail img {
+  width: 20px;
+  height: 20px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.text-primary {
+  color: var(--vscode-textLink-foreground) !important;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid hsla(0, 0%, 53.3%, 0.45);
+  padding: 1px 7px;
+  padding-bottom: 3px;
+  border-radius: 2px;
+  font-size: 90%;
+  margin: 0 6px 3px 0;
+  cursor: pointer;
+  color: var(--vscode-editor-foreground) !important;
+  text-decoration: none !important;
+}
+
+.tag:hover,
+.tag:focus {
+  opacity: 1 !important;
+  color: var(--vscode-button-foreground) !important;
+  text-decoration: none !important;
+  background-color: var(--vscode-button-background);
+  border-color: var(--vscode-button-background);
+}
+
+.command-container .action-container {
+  bottom: 5px;
+  right: 0;
+}
+
+.about-content {
+  font-size: 12px;
+}
+
+.control-checkbox.checked::after {
+  content: "Yes";
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.control-checkbox:not(.checked)::after {
+  content: "No";
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.additional-details-container>div:first-child h5 {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 1400px) {
+  .container-lg {
+    max-width: 90%;
+  }
+}

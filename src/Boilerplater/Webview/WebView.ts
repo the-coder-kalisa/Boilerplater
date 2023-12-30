@@ -97,7 +97,7 @@ export default (
                       </div>
                   </section>
                   <section class="configuration-container row flex-grow">
-                      <div id="create-app-form" class="col d-flex flex-column app-config-container overflow-y-auto h-100">
+                      <div id="boilerplater-form" class="col d-flex flex-column app-config-container overflow-y-auto h-100">
                           ${formFields}
                       </div>
                       <div class="col-4 col-lg-3 additional-details-container h-100 overflow-y-auto d-none d-lg-block ${
