@@ -26,10 +26,7 @@ export const generateGroupList = (
       const icon = Settings.shouldShowAppIcons
         ? `
     <div class="col-3 text-center thumbnail p-2">
-      <img src="${
-        app.logoPath ||
-        "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/ca-logo.png"
-      }" />
+      <img src="${app.logoPath}" />
     </div>`
         : "";
 

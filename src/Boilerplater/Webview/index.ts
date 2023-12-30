@@ -46,7 +46,7 @@ export default class CreateApp {
     this.#panel = panel;
     this.#extensionUri = extensionUri;
 
-    this.#panel.iconPath = vscode.Uri.joinPath(extensionUri, "media", "images", "ca-logo-sm.png");
+    this.#panel.iconPath = vscode.Uri.joinPath(extensionUri, "media", "images", "bp-logo-sm.png");
 
     // Set the webview's initial html content
     this.#update(true);
