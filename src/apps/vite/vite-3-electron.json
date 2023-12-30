@@ -1,0 +1,110 @@
+{
+  "appName": "Vite Electron",
+  "groupNames": ["Vite", "Electron"],
+  "relatedAppNames": "Electron",
+  "description": "Vite is a frontend tool for building web applications quickly, created by Evan You, the creator of the Vue.js framework, that provides a fast dev server, bundling and a great developer experience.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/vite.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": [
+    "npm create @quick-start/electron@latest ${fields.appId} -- --template=${fields.template} --yes;",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-) and dot (.)",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[.|a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[.|a-z]+(-[a-z]+)*$"
+      }
+    },
+    "template": {
+      "type": "dropdown",
+      "label": "Vite Template",
+      "description": "Check out Awesome Vite for <a href='https://github.com/vitejs/awesome-vite#templates'>community maintained templates</a> that include other tools or target different frameworks",
+      "prompt": true,
+      "value": "vanilla",
+      "options": [
+        { "label": "Vanilla", "value": "vanilla" },
+        { "label": "Vanilla + Typescript", "value": "vanilla-ts" },
+        { "label": "Vue", "value": "vue" },
+        { "label": "Vue + Typescript", "value": "vue-ts" },
+        { "label": "React", "value": "react" },
+        { "label": "React + Typescript", "value": "react-ts" },
+        { "label": "Svelte", "value": "svelte" },
+        { "label": "Svelte + Typescript", "value": "svelte-ts" },
+        { "label": "Solid", "value": "solid" },
+        { "label": "Solid + Typescript", "value": "solid-ts" }
+      ]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install create-electron-vite",
+      "description": "click here to install create-electron-vite globally",
+      "command": "npm i -g create-electron-vite"
+    },
+    {
+      "label": "npm create @quick-start/electron@latest",
+      "description": "Click here to create the vite electron app using cli prompts",
+      "command": "npm create @quick-start/electron@latest"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npm create @quick-start/electron@latest --yes --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://vitejs.dev/"
+    },
+    {
+      "label": "Getting Started Vite",
+      "href": "https://vitejs.dev/guide/"
+    },
+    {
+      "label": "Getting Started Electron",
+      "href": "https://www.electronforge.io/"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/@quick-start/create-electron"
+    },
+    {
+      "label": "Templates",
+      "href": "https://github.com/vitejs/awesome-vite#templates"
+    }
+  ],
+  "tags": [
+    "vite",
+    "vite-electron",
+    "electron-vite",
+    "electron",
+    "vanilla",
+    "vue",
+    "react",
+    "svelte",
+    "solid",
+    "ui",
+    "frontend",
+    "library",
+    "webapp",
+    "web"
+  ]
+}

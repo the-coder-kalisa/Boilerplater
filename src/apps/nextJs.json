@@ -1,0 +1,129 @@
+{
+  "appName": "NextJs",
+  "relatedAppNames": "Vite Extra",
+  "description": "NextJs is a React Framework used for front-end development",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/nextJs.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": [
+    "npx create-next-app@latest ${fields.getExcept('openInVsCode')};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "example": {
+      "label": "Example Template Url",
+      "prefix": "--example=\"",
+      "suffix": "\"",
+      "description": "You can use an example name from the <a href=\"https://github.com/vercel/next.js/tree/master/examples\">Next.js repo</a> or a GitHub URL"
+    },
+    "language": {
+      "type": "dropdown",
+      "label": "Language",
+      "prompt": true,
+      "value": "--ts",
+      "options": [
+        { "label": "Typescript", "value": "--ts" },
+        { "label": "Javascript", "value": "--js" }
+      ]
+    },
+    "useTailwind": {
+      "type": "radio",
+      "label": "Use Tailwind css ?",
+      "value": "--tailwind",
+      "options": [{ "label": "Yes", "value": "--tailwind" }, { "label": "No" }]
+    },
+    "useEslint": {
+      "type": "radio",
+      "label": "Use Eslint ?",
+      "options": [{ "label": "Yes", "value": "--eslint" }, { "label": "No" }]
+    },
+    "useRouter": {
+      "type": "radio",
+      "label": "Use App Router ?",
+      "options": [{ "label": "Yes", "value": "--app" }, { "label": "No" }]
+    },
+    "initializeSrc": {
+      "type": "radio",
+      "label": "Initialize inside a 'src/' directory ?",
+      "options": [{ "label": "Yes", "value": "--src-dir" }, { "label": "No" }]
+    },
+    "importAlias": {
+      "label": "Specify import alias to use",
+      "prefix": "--import-alias=",
+      "description": "Defaults to '@/*'"
+    },
+    "packageManager": {
+      "type": "dropdown",
+      "label": "Package Manager",
+      "value": "--npm",
+      "options": [
+        { "label": "npm", "value": "--npm" },
+        { "label": "pnpm", "value": "--use-pnpm" },
+        { "label": "yarn", "value": "--use-yarn" },
+        { "label": "bun", "value": "--use-bun" }
+      ]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install create-next-app",
+      "description": "Click here to install create-next-app globally",
+      "command": "npm i -g create-next-app"
+    },
+    {
+      "label": "create-next-app",
+      "description": "Click here to create the next app using cli prompts",
+      "command": "npx create-next-app@latest"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "npx create-next-app@latest --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npx create-next-app@latest --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://nextjs.org/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://nextjs.org/docs/getting-started"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/create-next-app"
+    },
+    {
+      "label": "Examples",
+      "href": "https://nextjs.org/showcase#all"
+    }
+  ],
+  "tags": ["framework", "frontend", "next", "nextJs", "react", "react framework", "ui", "web", "webapp"]
+}

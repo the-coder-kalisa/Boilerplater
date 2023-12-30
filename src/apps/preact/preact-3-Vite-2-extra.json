@@ -1,0 +1,90 @@
+{
+  "appName": "Preact Vite Extra",
+  "groupNames": "Preact",
+  "relatedAppNames": "Vite Extra",
+  "description": "Vite is a frontend tool for building web applications quickly, created by Evan You, the creator of the Vue.js framework, that provides a fast dev server, bundling and a great developer experience.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/vite.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "Vite",
+      "description": "https://vitejs.dev/",
+      "href": "https://vitejs.dev/"
+    }
+  ],
+  "commandTemplate": [
+    "npm create vite-extra@latest ${fields.appId} -- --template=${fields.template} --yes;",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-) and dot (.)",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[.|a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[.|a-z]+(-[a-z]+)*$"
+      }
+    },
+    "template": {
+      "type": "dropdown",
+      "label": "Vite Extra Template",
+      "description": "Check out Awesome Vite for <a href='https://github.com/vitejs/awesome-vite#templates'>community maintained templates</a> that include other tools or target different frameworks",
+      "prompt": true,
+      "value": "ssr-preact",
+      "options": [
+        { "label": "SSR Preact", "value": "ssr-preact" },
+        { "label": "SSR Preact + Typescript", "value": "ssr-preact-ts" },
+        { "label": "Deno Preact", "value": "deno-preact" },
+        { "label": "Deno Preact + Typescript", "value": "deno-preact-ts" }
+      ]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install create-vite-extra",
+      "description": "Click here to install create-vite-extra globally",
+      "command": "npm install -g create-vite-extra"
+    },
+    {
+      "label": "npm create vite-extra@latest",
+      "description": "Click here to create the vite extra app using cli prompts",
+      "command": "npm create vite-extra@latest"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npm create vite-extra@latest --yes --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://vitejs.dev/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://vitejs.dev/guide/"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/create-vite-extra"
+    },
+    {
+      "label": "Templates",
+      "href": "https://github.com/vitejs/awesome-vite#templates"
+    }
+  ],
+  "tags": ["vite", "vite-extra", "extra", "ssr", "deno", "preact", "ui", "frontend", "library", "webapp", "web"]
+}

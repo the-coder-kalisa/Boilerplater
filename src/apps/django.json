@@ -1,0 +1,104 @@
+{
+  "appName": "Django",
+  "description": "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/django.png",
+  "prerequisites": [
+    {
+      "label": "Python",
+      "description": "https://www.python.org/",
+      "href": "https://www.python.org/"
+    },
+    {
+      "label": "Pip",
+      "description": "https://pip.pypa.io/en/stable/installation/",
+      "href": "https://pip.pypa.io/en/stable/installation/"
+    },
+    {
+      "label": "Django",
+      "description": "Click here to install Django globally",
+      "command": "python -m pip install Django"
+    }
+  ],
+  "commandTemplate": [
+    "${fields.installPrerequisites}",
+    "django-admin startproject ${fields.getExcept('installPrerequisites', 'openInVsCode')};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "template": {
+      "type": "browse",
+      "label": "Template",
+      "description": "Please provide local path or GitHub URL to template files or an archive file",
+      "buttonText": "Browse File",
+      "canSelectFolder": false,
+      "canSelectFile": true,
+      "prefix": "--template=",
+      "placeholder": "Please select any Template files Archive"
+    },
+    "fileNames": {
+      "label": "File Name(s)",
+      "description": "Please separate multiple file name(s) with comma",
+      "prefix": "--name=",
+      "placeholder": "Please provide the file name(s) to render"
+    },
+    "fileExtensions": {
+      "label": "File Extension(s)",
+      "prefix": "--extension=",
+      "description": "Please separate multiple file extension(s) with comma",
+      "value": "py"
+    },
+    "installPrerequisites": {
+      "type": "checkbox",
+      "label": "Install Prerequisites ?",
+      "checkedValue": "python -m pip install Django;"
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "django-admin startproject",
+      "description": "Click here to create the django app using cli prompts",
+      "command": "django-admin startproject"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "django-admin --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "django-admin startproject --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://www.djangoproject.com"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://www.djangoproject.com/start"
+    },
+    {
+      "label": "Tutorial",
+      "href": "https://docs.djangoproject.com/en/3.2/intro/tutorial01/"
+    }
+  ],
+  "tags": ["django", "framework", "frontend", "python", "pythonwebapp", "ui", "web", "webapp"]
+}

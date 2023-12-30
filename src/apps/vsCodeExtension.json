@@ -1,0 +1,148 @@
+{
+  "appName": "VS Code Extension",
+  "description": "VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/vscode.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "yo generator-code",
+      "description": "Click here to install yo generator-code globally",
+      "command": "npm install -g yo generator-code"
+    },
+    {
+      "label": "vsce",
+      "description": "Click here to install vsce globally",
+      "command": "npm install -g vsce"
+    }
+  ],
+  "commandTemplate": ["${fields.installPrerequisites}", "yo code --quick ${fields.getExcept('installPrerequisites')};"],
+  "fields": {
+    "appId": {
+      "label": "Extension Id",
+      "prefix": "--extensionId=",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "Extension Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "extensionName": {
+      "label": "Extension Name",
+      "prefix": "--extensionDisplayName='",
+      "suffix": "'",
+      "value": "Hello World",
+      "required": true,
+      "errors": {
+        "required": "App Name is Required."
+      }
+    },
+    "extensionDescription": {
+      "label": "Description",
+      "prefix": "--extensionDescription=\"",
+      "suffix": "\""
+    },
+    "extensionType": {
+      "type": "dropdown",
+      "label": "Type",
+      "prompt": true,
+      "prefix": "--extensionType=",
+      "value": "ts",
+      "options": [
+        { "label": "Typescript", "value": "ts" },
+        { "label": "Javascript", "value": "js" },
+        { "label": "Color Theme", "value": "colortheme" },
+        { "label": "Language Support", "value": "language" },
+        { "label": "Code Snippets", "value": "snippets" },
+        { "label": "Keymap", "value": "keymap" },
+        { "label": "Extension Pack", "value": "extensionpack" },
+        { "label": "Language Pack (Localization)", "value": "localization" },
+        { "label": "Notebook Renderer (TypeScript)", "value": "notebook" },
+        { "label": "Web", "value": "web" }
+      ]
+    },
+    "packageManager": {
+      "type": "radio",
+      "label": "Package Manager",
+      "options": [{ "label": "yarn", "value": "--pkgManager=yarn" }, { "label": "npm" }]
+    },
+    "useWebpack": {
+      "type": "radio",
+      "label": "Bundle with webpack ?",
+      "options": [{ "label": "Yes", "value": "--webpack" }, { "label": "No" }]
+    },
+    "initializeGit": {
+      "type": "radio",
+      "label": "Initialize Git Repository ?",
+      "options": [{ "label": "Yes", "value": "--gitInit" }, { "label": "No" }],
+      "value": "--gitInit"
+    },
+    "skipInstall": {
+      "type": "radio",
+      "label": "Skip Install ?",
+      "options": [{ "label": "Yes", "value": "--skip-install" }, { "label": "No" }]
+    },
+    "installPrerequisites": {
+      "label": "Install Prerequisites ?",
+      "type": "checkbox",
+      "checkedValue": "npm install -g yo generator-code; npm install -g vsce;"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "yo code",
+      "description": "Click here to create the vscode extension using cli prompts",
+      "command": "yo code"
+    },
+    {
+      "label": "vsce package",
+      "description": "Click here to package vscode extension",
+      "command": "vsce package"
+    },
+    {
+      "label": "vsce publish",
+      "description": "Click here to publish vscode extension",
+      "command": "vsce publish"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "yo code --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "yo code --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://code.visualstudio.com/api"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://code.visualstudio.com/api/get-started/your-first-extension"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/generator-code"
+    },
+    {
+      "label": "VS Code extension API samples",
+      "href": "https://github.com/microsoft/vscode-extension-samples"
+    },
+    {
+      "label": "VS Code webview ui toolkit",
+      "href": "https://github.com/microsoft/vscode-webview-ui-toolkit"
+    }
+  ],
+  "tags": ["extension", "node", "vscode", "vscode-extension", "vscodeextension"]
+}

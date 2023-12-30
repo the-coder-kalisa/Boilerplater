@@ -1,0 +1,78 @@
+{
+  "appName": "Electron",
+  "groupNames": "Electron",
+  "relatedAppNames": "Vite Electron",
+  "description": "Electron is designed to create desktop applications using web technologies that are rendered using a version of the Chromium browser engine and a back end using the Node.js runtime environment.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/electron.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": [
+    "npx create-electron-app@latest ${fields.appId} -- --template=${fields.template} --yes;",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-) and dot (.)",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[.|a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[.|a-z]+(-[a-z]+)*$"
+      }
+    },
+    "template": {
+      "type": "dropdown",
+      "label": "Template",
+      "prompt": true,
+      "value": "webpack",
+      "options": [
+        { "label": "Webpack", "value": "webpack" },
+        { "label": "Webpack + Typescript", "value": "webpack-typescript" }
+      ]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install create-electron-vite",
+      "description": "click here to install create-electron-vite globally",
+      "command": "npm i -g create-electron-vite"
+    },
+    {
+      "label": "npm create @quick-start/electron@latest",
+      "description": "Click here to create the vite electron app using cli prompts",
+      "command": "npm create @quick-start/electron@latest"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npx create-electron-app@latest --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://www.electronjs.org/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://www.electronforge.io/"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/create-electron-app"
+    }
+  ],
+  "tags": ["electron", "react", "svelte", "solid", "ui", "frontend", "library", "webapp", "web"]
+}

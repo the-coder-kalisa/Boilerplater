@@ -1,0 +1,163 @@
+{
+  "appName": "Angular",
+  "groupNames": "Angular",
+  "description": "Angular is a platform and framework for building single-page client applications using HTML and TypeScript.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/angular.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "@angular/cli",
+      "description": "Click here to install @angular/cli globally",
+      "command": "npm install -g @angular/cli"
+    }
+  ],
+  "commandTemplate": [
+    "${fields.installPrerequisites}",
+    "ng new ${fields.getExcept('installPrerequisites', 'openInVsCode')} --defaults;",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "prefix": {
+      "label": "Prefix",
+      "prefix": "--prefix=",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "styleSheet": {
+      "type": "dropdown",
+      "label": "Style sheet Format",
+      "prefix": "--style=",
+      "prompt": true,
+      "options": [
+        { "label": "CSS" },
+        { "label": "SCSS", "value": "scss" },
+        { "label": "SASS", "value": "sass" },
+        { "label": "LESS", "value": "less" }
+      ]
+    },
+    "viewEncapsulation": {
+      "type": "dropdown",
+      "label": "Vew Encapsulation",
+      "prefix": "--view-encapsulation=",
+      "options": [
+        { "label": "Emulated", "value": "Emulated" },
+        { "label": "None", "value": "None" },
+        { "label": "ShadowDom", "value": "ShadowDom" }
+      ]
+    },
+    "routing": {
+      "type": "radio",
+      "label": "Include Routing ?",
+      "options": [{ "label": "Yes", "value": "--routing" }, { "label": "No" }]
+    },
+    "inlineStyle": {
+      "type": "radio",
+      "label": "Include Inline Styles ?",
+      "options": [{ "label": "Yes", "value": "--inline-style" }, { "label": "No" }]
+    },
+    "inlineTemplate": {
+      "type": "radio",
+      "label": "Include Inline Template ?",
+      "options": [{ "label": "Yes", "value": "--inline-template" }, { "label": "No" }]
+    },
+    "purpose": {
+      "type": "radio",
+      "label": "For learning purpose only ?",
+      "description": "If Yes It creates a workspace without any testing frameworks.",
+      "options": [{ "label": "Yes", "value": "--minimal" }, { "label": "No" }]
+    },
+    "strict": {
+      "type": "radio",
+      "label": "Do Strict Type Check ?",
+      "prefix": "--strict=",
+      "options": [{ "label": "Yes" }, { "label": "No", "value": "false" }]
+    },
+    "package": {
+      "type": "radio",
+      "label": "Package Manager",
+      "prefix": "--package-manager=",
+      "options": [
+        { "label": "npm" },
+        { "label": "yarn", "value": "yarn" },
+        { "label": "pnpm", "value": "pnpm" },
+        { "label": "cnpm", "value": "cnpm" }
+      ]
+    },
+    "initGit": {
+      "type": "radio",
+      "label": "Initialize Git Repository ?",
+      "options": [{ "label": "Yes" }, { "label": "No", "value": "--skip-git" }]
+    },
+    "skipTest": {
+      "type": "radio",
+      "label": "Skip Test ?",
+      "options": [{ "label": "Yes", "value": "--skip-test" }, { "label": "No" }]
+    },
+    "skipInstall": {
+      "type": "radio",
+      "label": "Skip Install ?",
+      "options": [{ "label": "Yes", "value": "--skip-install" }, { "label": "No" }]
+    },
+    "installPrerequisites": {
+      "type": "checkbox",
+      "label": "Install Prerequisites ?",
+      "checkedValue": "npm install -g @angular/cli;"
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "ng new",
+      "description": "Click here to create the angular app using cli prompts",
+      "command": "ng new"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "ng --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "ng new --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://angular.io/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://angular.io/guide/setup-local"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/@angular/cli"
+    }
+  ],
+  "tags": ["angular", "framework", "frontend", "ui", "web"]
+}

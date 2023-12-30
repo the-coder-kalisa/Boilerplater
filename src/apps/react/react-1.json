@@ -1,0 +1,95 @@
+{
+  "appName": "React",
+  "groupNames": "React",
+  "description": "React is a declarative, efficient, and flexible JavaScript library for building user interfaces.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/react.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": [
+    "npx create-react-app ${fields.getExcept('openInVsCode')};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "template": {
+      "type": "dropdown",
+      "label": "Template",
+      "description": "You can find many great community templates by searching for <a href='https://www.npmjs.com/search?q=cra-template-*'>cra-template-*</a> on npm.",
+      "prompt": true,
+      "prefix": "--template=",
+      "options": [
+        { "label": "Javascript" },
+        { "label": "Typescript", "value": "typescript" },
+        { "label": "Typescript, Bootstrap, SASS", "value": "tbs" },
+        { "label": "Typescript, Redux", "value": "redux-typescript" },
+        { "label": "Javascript, Redux", "value": "redux" }
+      ]
+    },
+    "packageManager": {
+      "type": "radio",
+      "label": "Use Pnp ?",
+      "options": [{ "label": "Yes", "value": "--use-pnp" }, { "label": "No" }]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install create-react-app",
+      "description": "Click here to install create-react-app globally",
+      "command": "npm install -g create-react-app"
+    },
+    {
+      "label": "create-react-app",
+      "description": "Click here to create the react app using cli prompts",
+      "command": "npx create-react-app"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "npx create-react-app --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npx create-react-app --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://reactjs.org/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://create-react-app.dev/docs/getting-started"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/create-react-app"
+    },
+    {
+      "label": "React Templates",
+      "href": "https://www.npmjs.com/search?q=cra-template-*"
+    }
+  ],
+  "tags": ["react", "ui", "frontend", "library", "web"]
+}

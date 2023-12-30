@@ -1,0 +1,139 @@
+{
+  "appName": "Vue Ionic",
+  "groupNames": "Vue",
+  "relatedAppNames": "Ionic",
+  "description": "Ionic is an HTML5 mobile app development framework targeted at building hybrid mobile apps",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/ionic.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "@ionic/cli",
+      "description": "Click here to install @angular/cli globally",
+      "command": "npm install -g @ionic/cli"
+    },
+    {
+      "label": "@vue/cli",
+      "description": "Click here to install @vue/cli If the the ionic app --type=vue",
+      "command": "npm install -g @vue/cli"
+    }
+  ],
+  "commandTemplate": [
+    "${fields.installPrerequisites ? 'npm install -g @vue/cli; npm install -g @ionic/cli;' : ''}",
+    "ionic start ${fields.appName} --project-id=${fields.appId} --type=vue ${fields.getExcept('appName', 'appId', 'type', 'installPrerequisites', 'openInVsCode')} --yes;",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "Project Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Specify a slug for your app (used for the directory name and package name).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "Project Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "appName": {
+      "label": "App Name",
+      "value": "Hello World",
+      "description": "The name of your new project.",
+      "prefix": "\"",
+      "suffix": "\"",
+      "required": true,
+      "errors": {
+        "required": "App Name is Required."
+      }
+    },
+    "template": {
+      "type": "dropdown",
+      "label": "Template",
+      "prompt": true,
+      "value": "tabs",
+      "options": [
+        { "label": "Tabs - A starting project with a simple tabbed interface", "value": "tabs" },
+        { "label": "Sidemenu - A starting project with a side menu with navigation in the content area", "value": "sidemenu" },
+        { "label": "Blank - A blank starter project", "value": "blank" },
+        { "label": "List - A starting project with a list", "value": "list" }
+      ]
+    },
+    "includeCapacitor": {
+      "type": "radio",
+      "label": "Include Capacitor ?",
+      "options": [{ "label": "Yes", "value": "--capacitor" }, { "label": "No" }]
+    },
+    "initializeGit": {
+      "type": "radio",
+      "label": "Initialize Git Repository ?",
+      "options": [{ "label": "Yes" }, { "label": "No", "value": "--no-git" }]
+    },
+    "skipInstall": {
+      "type": "radio",
+      "label": "Skip Install ?",
+      "options": [{ "label": "Yes", "value": "--no-deps" }, { "label": "No" }]
+    },
+    "installPrerequisites": {
+      "type": "checkbox",
+      "label": "Install Prerequisites ?"
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "ionic start",
+      "description": "Click here to create the ionic app using cli prompts",
+      "command": "ionic start"
+    },
+    {
+      "label": "check ionic cli version",
+      "description": "Click here to check ionic cli version",
+      "command": "ionic --version"
+    },
+    {
+      "label": "check angular cli version",
+      "description": "Click here to angular ionic cli version",
+      "command": "ng --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "ionic start --help"
+    },
+    {
+      "label": "List Templates",
+      "description": "Click here to see list of available templates",
+      "command": "ionic start --list"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://ionicframework.com/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://ionicframework.com/docs"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/@ionic/cli"
+    },
+    {
+      "label": "Ionic Icons",
+      "href": "https://ionic.io/ionicons"
+    },
+    {
+      "label": "Ionic Components",
+      "href": "https://ionicframework.com/docs/components"
+    }
+  ],
+  "tags": ["framework", "vue", "frontend", "hybrid", "hybridapp", "ionic", "mobile", "mobileapp", "phone", "ui", "web"]
+}

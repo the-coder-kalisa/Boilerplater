@@ -1,0 +1,118 @@
+{
+  "appName": "Vue",
+  "groupNames": "Vue",
+  "description": "Vue is a progressive javascript framework for building user interfaces.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/vue.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "@vue/cli",
+      "description": "Click here to install @vue/cli globally",
+      "command": "npm install -g @vue/cli"
+    }
+  ],
+  "commandTemplate": [
+    "${fields.installPrerequisites}",
+    "vue create ${fields.appId} ${fields.presetLocation || '--default'} ${fields.packageManager} ${fields.initializeGit};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "presetLocation": {
+      "type": "browse",
+      "label": "Custom Preset Location",
+      "prefix": "--preset=\"",
+      "suffix": "\"",
+      "buttonText": "Browse File",
+      "canSelectFolder": false,
+      "canSelectFile": true,
+      "description": "Please provide local path or GitHub URL to <span class='text-primary'>preset.json</span> file"
+    },
+    "packageManager": {
+      "type": "radio",
+      "label": "Package Manager",
+      "prefix": "--packageManager=",
+      "options": [{ "label": "npm" }, { "label": "yarn", "value": "yarn" }, { "label": "pnp", "value": "pnp" }]
+    },
+    "initializeGit": {
+      "type": "radio",
+      "label": "Initialize a git repository ?",
+      "options": [{ "label": "Yes" }, { "label": "No", "value": "--no-git" }]
+    },
+    "installPrerequisites": {
+      "type": "checkbox",
+      "label": "Install Prerequisites ?",
+      "checkedValue": "npm install -g @vue/cli;"
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install @vue/cli-service",
+      "description": "Click here to install the vue local service using cli prompts globally",
+      "command": "npm install -g @vue/cli-service"
+    },
+    {
+      "label": "install @vue/cli-service-global",
+      "description": "Click here to install the vue global service using cli prompts globally",
+      "command": "npm install -g @vue/cli-service-global"
+    },
+    {
+      "label": "vue ui",
+      "description": "Click here to create the vue app using official vue gui",
+      "command": "vue ui"
+    },
+    {
+      "label": "vue create",
+      "description": "Click here to create the vue app using cli prompts",
+      "command": "vue create"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "vue --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "vue create --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://vuejs.org/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://cli.vuejs.org/guide/"
+    },
+    {
+      "label": "Vue Cli Npm Package",
+      "href": "https://www.npmjs.com/package/@vue/cli"
+    },
+    {
+      "label": "Vue Cli service Npm Package",
+      "href": "https://www.npmjs.com/package/@vue/cli-service"
+    }
+  ],
+  "tags": ["framework", "frontend", "ui", "vue", "webapp"]
+}

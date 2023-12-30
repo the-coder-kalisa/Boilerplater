@@ -1,0 +1,124 @@
+{
+  "appName": "ExpressJS",
+  "description": "ExpressJS is a web application framework that provides you with a simple API to build websites, web apps and back ends",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/expressJs.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": [
+    "npx express-generator ${fields.getExcept('openInVsCode')} --force;",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "viewType": {
+      "type": "dropdown",
+      "label": "View Type",
+      "prompt": true,
+      "prefix": "--view=",
+      "options": [
+        { "label": "JADE" },
+        { "label": "EJS", "value": "ejs" },
+        { "label": "HBD", "value": "hbd" },
+        { "label": "HJS", "value": "hjs" },
+        { "label": "PUG", "value": "pug" },
+        { "label": "TWIG", "value": "twig" },
+        { "label": "VASH", "value": "vash" }
+      ]
+    },
+    "styleSheet": {
+      "type": "dropdown",
+      "label": "Style sheet Format",
+      "prompt": true,
+      "prefix": "--css=",
+      "options": [
+        { "label": "CSS" },
+        { "label": "LESS", "value": "less" },
+        { "label": "STYLUS", "value": "stylus" },
+        { "label": "COMPASS", "value": "compass" },
+        { "label": "SASS", "value": "sass" }
+      ]
+    },
+    "addEjs": {
+      "type": "radio",
+      "label": "Add ejs engine support ?",
+      "options": [{ "label": "Yes", "value": "--ejs" }, { "label": "No" }]
+    },
+    "addHandlebar": {
+      "type": "radio",
+      "label": "Add handlebar engine support ?",
+      "options": [{ "label": "Yes", "value": "--hbs" }, { "label": "No" }]
+    },
+    "addPug": {
+      "type": "radio",
+      "label": "Add pug engine support ?",
+      "options": [{ "label": "Yes", "value": "--pug" }, { "label": "No" }]
+    },
+    "addHogan": {
+      "type": "radio",
+      "label": "Add hogan.js engine support ?",
+      "options": [{ "label": "Yes", "value": "--hogan" }, { "label": "No" }]
+    },
+    "noViews": {
+      "type": "radio",
+      "label": "Create app without views ?",
+      "options": [{ "label": "Yes", "value": "--no-view" }, { "label": "No" }]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install express-generator",
+      "description": "Click here to install express-generator globally",
+      "command": "npm install -g express-generator"
+    },
+    {
+      "label": "express-generator",
+      "description": "Click here to create the express app using cli prompts",
+      "command": "npx express-generator"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "npx express-generator --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npx express-generator --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://expressjs.com/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://expressjs.com/en/starter/generator.html"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/express-generator"
+    }
+  ],
+  "tags": ["backend", "express-generator", "expressgenerator", "expressjs", "node", "nodejs", "nodeserver", "server"]
+}

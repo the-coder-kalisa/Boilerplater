@@ -1,0 +1,99 @@
+{
+  "appName": "Gatsby",
+  "description": "Gatsby helps to build a powerful websites using a React-based framework and innovative data layer that makes integrating different APIs, and services into one web experience incredibly simple.",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/gatsby.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": [
+    "npx gatsby new ${fields.getExcept('openInVsCode')};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "template": {
+      "label": "Starter Template Url",
+      "description": "You can get may official starter template <a href=\"https://www.gatsbyjs.com/starters\">here</a>",
+      "placeholder": "Please provide a Starter Template GitHub URL here"
+    },
+    "turnOnVerbose": {
+      "type": "radio",
+      "label": "Turn on verbose output ?",
+      "options": [{ "label": "Yes", "value": "--verbose" }, { "label": "No" }]
+    },
+    "turnOffColor": {
+      "type": "radio",
+      "label": "Turn off color in output ?",
+      "options": [{ "label": "Yes", "value": "--no-colors" }, { "label": "No" }]
+    },
+    "turnJsonLogger": {
+      "type": "radio",
+      "label": "Turn on the JSON logger ?",
+      "options": [{ "label": "Yes", "value": "--json" }, { "label": "No" }]
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install gatsby-cli",
+      "description": "Click here to install gatsby-cli globally",
+      "command": "npm install -g gatsby-cli"
+    },
+    {
+      "label": "gatsby new",
+      "description": "Click here to create the gatsby app using cli prompts",
+      "command": "npx gatsby new"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "npx gatsby --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npx gatsby new --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://www.gatsbyjs.com/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://www.gatsbyjs.com/docs/"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/gatsby-cli"
+    },
+    {
+      "label": "Starter Templates",
+      "href": "https://www.gatsbyjs.com/starters"
+    },
+    {
+      "label": "Starter Template Repositories",
+      "href": "https://github.com/orgs/gatsbyjs/repositories"
+    }
+  ],
+  "tags": ["backend", "framework", "frontend", "full stack", "gatsby", "react", "react framework", "ui", "web", "webapp"]
+}

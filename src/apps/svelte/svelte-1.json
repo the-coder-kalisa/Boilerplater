@@ -1,0 +1,77 @@
+{
+  "appName": "Svelte",
+  "groupNames": "Svelte",
+  "description": "Svelte is a radical new approach to building user interfaces using compiler. In Short Svelte is a complier and not a library",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/svelte.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    }
+  ],
+  "commandTemplate": ["npm create svelte@latest ${fields.appId} --yes;", "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "install svelte",
+      "description": "Click here to install degit globally",
+      "command": "npm install -g create-svelte"
+    },
+    {
+      "label": "npm create svelte@latest",
+      "description": "Click here to create the svelte app using cli prompts",
+      "command": "npm create svelte@latest"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "npm create svelte@latest --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "npm create svelte@latest --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://svelte.dev/"
+    },
+    {
+      "label": "Getting Started with Svelte",
+      "href": "https://svelte.dev/docs"
+    },
+    {
+      "label": "Getting Started with SvelteKit",
+      "href": "https://kit.svelte.dev/docs"
+    },
+    {
+      "label": "Examples",
+      "href": "https://svelte.dev/examples#hello-world"
+    },
+    {
+      "label": "Tutorial",
+      "href": "https://svelte.dev/tutorial/basics"
+    }
+  ],
+  "tags": ["compiler", "frontend", "library", "svelte", "sveltekit", "ui", "web", "webapp"]
+}

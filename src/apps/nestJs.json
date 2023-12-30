@@ -1,0 +1,112 @@
+{
+  "appName": "NestJs",
+  "description": "NestJS is a framework for building efficient, scalable Node.js web applications",
+  "logoPath": "https://raw.githubusercontent.com/R35007/create-app-support/version_5.1.0/images/nestJs.png",
+  "prerequisites": [
+    {
+      "label": "node",
+      "description": "https://nodejs.org/en/",
+      "href": "https://nodejs.org/en/"
+    },
+    {
+      "label": "@nestjs/cli",
+      "description": "Click here to install create-next-app globally",
+      "command": "npm i -g @nestjs/cli"
+    }
+  ],
+  "commandTemplate": [
+    "${fields.installPrerequisites}",
+    "nest new ${fields.getExcept('installPrerequisites', 'openInVsCode')};",
+    "${fields.openInVsCode ? `code ${fields.get('appId')};` : ''}"
+  ],
+  "fields": {
+    "appId": {
+      "label": "App Id",
+      "placeholder": "^[a-z]+(-[a-z]+)*$",
+      "description": "Must be in lowercase alphabets. No spaces or special chars are allowed except hyphen (-).",
+      "value": "hello-world",
+      "required": true,
+      "pattern": "^[a-z]+(-[a-z]+)*$",
+      "errors": {
+        "required": "App Id is Required.",
+        "pattern": "Invalid pattern. Value must satisfy pattern ^[a-z]+(-[a-z]+)*$"
+      }
+    },
+    "language": {
+      "type": "dropdown",
+      "label": "Language",
+      "prompt": true,
+      "prefix": "--language=",
+      "value": "javascript",
+      "options": [
+        { "label": "Javascript", "value": "javascript" },
+        { "label": "Typescript", "value": "typescript" }
+      ]
+    },
+    "strict": {
+      "type": "radio",
+      "label": "Do Strict Type Check ?",
+      "options": [{ "label": "Yes", "value": "--strict" }, { "label": "No" }]
+    },
+    "packageManager": {
+      "type": "radio",
+      "label": "Package Manager",
+      "options": [{ "label": "yarn" }, { "label": "npm", "value": "--npm" }]
+    },
+    "gitInit": {
+      "type": "radio",
+      "label": "Initialize Git Repository ?",
+      "options": [{ "label": "Yes" }, { "label": "No", "value": "--skip-git" }]
+    },
+    "skipInstall": {
+      "type": "radio",
+      "label": "Skip Install ?",
+      "options": [{ "label": "Yes", "value": "--skip-install" }, { "label": "No" }]
+    },
+    "installPrerequisites": {
+      "type": "checkbox",
+      "label": "Install Prerequisites ?",
+      "checkedValue": "npm i -g @nestjs/cli;"
+    },
+    "openInVsCode": {
+      "type": "checkbox",
+      "label": "Open In VSCode ?"
+    }
+  },
+  "additionalCommands": [
+    {
+      "label": "nest new",
+      "description": "Click here to create the nest app using cli prompts",
+      "command": "nest new"
+    },
+    {
+      "label": "check cli version",
+      "description": "Click here to check cli version",
+      "command": "nest --version"
+    },
+    {
+      "label": "cli help",
+      "description": "Click here to know more cli configurations",
+      "command": "nest new --help"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Home Page",
+      "href": "https://nestjs.com/"
+    },
+    {
+      "label": "Getting Started",
+      "href": "https://docs.nestjs.com/"
+    },
+    {
+      "label": "Npm Package",
+      "href": "https://www.npmjs.com/package/@nestjs/cli"
+    },
+    {
+      "label": "Courses",
+      "href": "https://courses.nestjs.com/"
+    }
+  ],
+  "tags": ["backend", "framework", "nest", "nestJs", "node", "node framework", "nodeserver", "server"]
+}
