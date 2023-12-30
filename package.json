@@ -3,21 +3,391 @@
   "displayName": "BoilerPlater",
   "description": "Effortlessly scaffold project structures within Visual Studio Code using this versatile boilerplate generator! Say goodbye to tedious setup and hello to instant project kickstarts. Simplify your workflow with VS Code Boilerplate, your go-to solution for efficient project initialization.",
   "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "Giovanni",
+  "author": {
+    "name": "Giovanni",
+    "email": "gthecoderkalisaineza@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-coder-kalisa/boilerplater.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Programming Languages",
+    "Snippets"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "boilerplate",
+    "generator",
+    "scaffold",
+    "scaffolding",
+    "project",
+    "structure",
+    "React",
+    "React Native",
+    "Node",
+    "Express",
+    "Electron",
+    "Next.js",
+    "NEXT",
+    "Vue",
+    "Gatsby",
+    "Nest",
+    "Nest.js",
+    "Nuxt",
+    "Nuxt.js",
+    "Angular",
+    "Angular.js",
+    "AngularJS",
+    "Ionic",
+    "Svelte",
+    "Svelte Kit",
+    "SvelteKit",
+    "Preact",
+    "React",
+    "Vite",
+    "VS Code Extension",
+    "Flutter"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "boilerplater.helloWorld",
-        "title": "Hello World"
+        "command": "boilerplater.webview",
+        "title": "Webview Mode"
+      },
+      {
+        "command": "boilerplater.cli",
+        "title": "CLI Mode"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "BoilerPlater",
+      "properties": {
+        "boilerplater.settings.cli.promptType": {
+          "type": "string",
+          "enum": [
+            "Default",
+            "Required",
+            "None"
+          ],
+          "enumDescriptions": [
+            "Prompt field config that required or prompt flag is set to true",
+            "Prompt only required field config",
+            "Don't prompt any field configs"
+          ],
+          "default": "Default",
+          "description": "Set the Boilerplater: Cli prompt type."
+        },
+        "boilerplater.settings.cli.promptCommandString": {
+          "type": "boolean",
+          "default": true,
+          "description": "Prompt for command string change in CLI before executing in terminal."
+        },
+        "boilerplater.settings.cli.promptExecutionPath": {
+          "type": "boolean",
+          "default": true,
+          "description": "If false it always executes in the active workspace folder location."
+        },
+        "boilerplater.settings.webview.showAppIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Set to false to hide the app icons. Hiding icons will improve the rendering performance."
+        },
+        "boilerplater.settings.customAppPath": {
+          "type": "string",
+          "description": "Set custom file or folder path of the custom app json. please restart the vscode to take effect."
+        },
+        "boilerplater.settings.customApps": {
+          "type": "array",
+          "description": "Provide the list of custom app details. please restart the vscode to take effect.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "appName": {
+                "type": "string"
+              },
+              "groupNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "relatedAppNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "hide": {
+                "type": "boolean"
+              },
+              "order": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "logoPath": {
+                "type": "string"
+              },
+              "prerequisites": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "label": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "href": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "description",
+                        "href"
+                      ]
+                    },
+                    {
+                      "properties": {
+                        "label": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "command": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "label",
+                        "description",
+                        "command"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "commandTemplate": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              },
+              "fields": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "textbox",
+                        "dropdown",
+                        "radio",
+                        "browse",
+                        "checkbox"
+                      ]
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "placeholder": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "order": {
+                      "type": "number"
+                    },
+                    "unCheckedValue": {
+                      "type": [
+                        "boolean",
+                        "string"
+                      ]
+                    },
+                    "checkedValue": {
+                      "type": [
+                        "boolean",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "boolean",
+                        "string"
+                      ]
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "canSelectFile": {
+                      "type": "boolean"
+                    },
+                    "canSelectFolder": {
+                      "type": "boolean"
+                    },
+                    "prompt": {
+                      "type": "boolean"
+                    },
+                    "hide": {
+                      "type": "boolean"
+                    },
+                    "pattern": {
+                      "type": "string"
+                    },
+                    "prefix": {
+                      "type": "string"
+                    },
+                    "suffix": {
+                      "type": "string"
+                    },
+                    "errors": {
+                      "type": "object",
+                      "examples": [
+                        {},
+                        {
+                          "required": "App Id is Required.",
+                          "pattern": "Invalid Id. No spaces or special chars are allowed."
+                        }
+                      ],
+                      "properties": {
+                        "required": {
+                          "type": "string"
+                        },
+                        "pattern": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "options": {
+                      "type": "array",
+                      "examples": [
+                        [],
+                        [
+                          {
+                            "label": "provide options only for type dropdown",
+                            "value": "--init"
+                          }
+                        ]
+                      ],
+                      "items": {
+                        "type": "object",
+                        "examples": [
+                          {},
+                          {
+                            "label": "provide options only for type dropdown",
+                            "value": "--init"
+                          }
+                        ],
+                        "properties": {
+                          "label": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "label",
+                          "value"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "type"
+                  ],
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "dropdown",
+                          "radio"
+                        ]
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "options"
+                    ]
+                  },
+                  "else": {
+                    "not": {
+                      "required": [
+                        "options"
+                      ]
+                    }
+                  }
+                }
+              },
+              "additionalCommands": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "command": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "description",
+                    "command"
+                  ]
+                }
+              },
+              "resources": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "appName"
+            ]
+          }
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
