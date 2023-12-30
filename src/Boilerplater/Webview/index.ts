@@ -6,8 +6,8 @@ import { getAppsList } from '../../utilities/getAppList';
 import { Command } from '../Command';
 import getWebview from './WebView';
 
-export default class CreateApp {
-  public static currentPanel: CreateApp | undefined;
+export default class Webview {
+  public static currentPanel: Webview | undefined;
 
   readonly #panel: vscode.WebviewPanel;
   readonly #extensionUri: vscode.Uri;
@@ -25,21 +25,21 @@ export default class CreateApp {
       : undefined;
 
     // If we already have a panel, show it.
-    if (CreateApp.currentPanel) {
-      CreateApp.currentPanel.#panel.reveal(column);
+    if (Webview.currentPanel) {
+      Webview.currentPanel.#panel.reveal(column);
       return;
     }
 
     // Otherwise, create a new panel.
     const panel = vscode.window.createWebviewPanel(
       Commands.BOILERPLATER_WEBVIEW,
-      'Create App',
+      'Boilerplater',
       column || vscode.ViewColumn.One,
       getWebviewOptions(extensionUri),
     );
 
 
-    CreateApp.currentPanel = new CreateApp(panel, extensionUri);
+    Webview.currentPanel = new Webview(panel, extensionUri);
   }
 
   private constructor(panel: vscode.WebviewPanel, extensionUri: vscode.Uri) {
@@ -168,7 +168,7 @@ export default class CreateApp {
   }
 
   public dispose() {
-    CreateApp.currentPanel = undefined;
+    Webview.currentPanel = undefined;
 
     // Clean up our resources
     this.#panel.dispose();
