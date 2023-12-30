@@ -1,13 +1,15 @@
 import { AppProps, FieldProps, FieldType } from "../constants";
 
 const getTextbox = (fieldName: string, props: FieldProps) => {
-  return `<vscode-text-field 
+  return `
+  <vscode-text-field 
     placeholder="${props.placeholder ?? ""}" 
     class="d-block control" 
     value="${props.value ?? ""}" 
     name="${fieldName}" 
     ${props.required ? "required" : ""}
-  ></<vscode-text-field>`;
+  ></<vscode-text-field>
+  `;
 };
 
 const getRadioGroup = (fieldName: string, props: FieldProps) => {
@@ -53,7 +55,8 @@ const getDropDown = (fieldName: string, props: FieldProps) => {
 };
 
 const getCheckbox = (fieldName: string, props: FieldProps) => {
-  return `<vscode-checkbox 
+  return `
+  <vscode-checkbox 
     class="control-checkbox" 
     data-checked-value="${props.checkedValue ?? "true"}" 
     data-un-checked-value="${props.unCheckedValue ?? ""}" 
@@ -63,7 +66,8 @@ const getCheckbox = (fieldName: string, props: FieldProps) => {
         ? "checked"
         : ""
     }
-    ></<vscode-checkbox>`;
+    ></<vscode-checkbox>
+  `;
 };
 
 const getBrowse = (fieldName: string, props: FieldProps) => {
@@ -115,7 +119,8 @@ export const generateFormFields = (
       </div>
       <div>Leave it empty to boilerplate in active workspace folder.</div>
     </div>
-  </div>`;
+  </div>
+  `;
 
   if (!Object.entries(fieldProps).length) return browseAppLocation;
 

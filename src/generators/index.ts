@@ -232,4 +232,5 @@ export const getLoaderStyle = (nonce: string) => `<style nonce="${nonce}">
   }
 }
 
-</style>`;
+</style>
+`;

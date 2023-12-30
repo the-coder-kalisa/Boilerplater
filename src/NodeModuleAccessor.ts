@@ -11,26 +11,29 @@ export interface NodeModulesValue {
 }
 
 export class NodeModulesAccessor {
-  static readonly outputPath = 'dist';
+  static readonly outputPath = "dist";
 
-  private static readonly pathMapping = new Map<NodeModulesKeys, NodeModulesValue>([
+  private static readonly pathMapping = new Map<
+    NodeModulesKeys,
+    NodeModulesValue
+  >([
     [
       NodeModulesKeys.bootstrap,
       {
-        sourcePath: ['node_modules', 'bootstrap', 'dist', 'css'],
-        destinationPath: ['libs', 'bootstrap', 'dist', 'css'],
-        fileName: 'bootstrap.min.css',
+        sourcePath: ["node_modules", "bootstrap", "dist", "css"],
+        destinationPath: ["libs", "bootstrap", "dist", "css"],
+        fileName: "bootstrap.min.css",
       },
     ],
     [
       NodeModulesKeys.uiToolkit,
       {
-        sourcePath: ['node_modules', '@vscode', 'webview-ui-toolkit', 'dist'],
-        destinationPath: ['libs', '@vscode', 'webview-ui-toolkit', 'dist'],
-        fileName: 'toolkit.js',
+        sourcePath: ["node_modules", "@vscode", "webview-ui-toolkit", "dist"],
+        destinationPath: ["libs", "@vscode", "webview-ui-toolkit", "dist"],
+        fileName: "toolkit.js",
         includeFolder: true,
       },
-    ]
+    ],
   ]);
 
   static getPathToOutputFile(key: NodeModulesKeys): string[] {
