@@ -9,6 +9,7 @@
     "name": "Giovanni",
     "email": "gthecoderkalisaineza@gmail.com"
   },
+  "icon": "media/images/bp-logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/the-coder-kalisa/boilerplater.git"
@@ -62,11 +63,13 @@
     "commands": [
       {
         "command": "boilerplater.webview",
-        "title": "Webview Mode"
+        "title": "Webview Mode",
+        "category": "Boilerplater"
       },
       {
         "command": "boilerplater.cli",
-        "title": "CLI Mode"
+        "title": "CLI Mode",
+        "category": "BoilerPlater"
       }
     ],
     "configuration": {

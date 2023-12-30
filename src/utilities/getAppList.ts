@@ -16,7 +16,6 @@ const getAppsListFromPath = (appPath: string) => {
           return [...result, json];
         return result;
       } catch (error) {
-        console.log(error);
         return result;
       }
     }, []);

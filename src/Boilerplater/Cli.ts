@@ -186,7 +186,7 @@ export default class Cli {
     try {
       const app = await this.pickApp();
       if (!app) return;
-      console.log(app);
+
       this.appName = app.label;
       const selectedApp = this.appsList.find(
         (app) => app.appName === this.appName
