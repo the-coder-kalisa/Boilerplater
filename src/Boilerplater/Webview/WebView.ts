@@ -70,7 +70,7 @@ export default (
           <div class="row pt-4 h-100">
               <aside class="col-3 col-lg-2 d-none d-md-block app-list-container h-100 pe-0 overflow-y-auto" style="scrollbar-gutter: stable;">
                   <div class="searchbox-wrapper position-sticky top-0">
-                      <vscode-text-field id="app-list-filter-input" class="search-box d-block mb-2" placeholder="Search apps here" value="${filterValue}"></vscode-text-field>
+                      <vscode-text-field id="app-list-filter-input" class="search-box d-block mb-2" placeholder="Search frameworks here" value="${filterValue}"></vscode-text-field>
                   </div>
                   <ul id="app-list" class="list-group app-list overflow-y-auto mb-3 rounded-0">
                       ${groupNamesList}
@@ -87,7 +87,6 @@ export default (
                               ${appsListOptions}
                           </vscode-dropdown>
                           <div class="d-inline-flex gap-1 flex-wrap justify-content-end">
-                              <vscode-button appearance="secondary" id="copy-config" title="copy the app config">Copy App Config</vscode-button>
                               <vscode-button appearance="secondary" id="copy-command" title="copy the command">Copy Command</vscode-button>
                               <vscode-button appearance="primary" id="execute" title="execute the command in terminal">Execute Command</vscode-button>
                           </div>

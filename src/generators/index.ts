@@ -183,11 +183,11 @@ export const generateInfoContainers = (
     : "";
 
   const infoContainers = [
+    resourcesSection,
     aboutSection,
     prerequisitesSection,
     additionCommandsSection,
     relatedAppsSection,
-    resourcesSection,
   ]
     .filter(Boolean)
     .join("<vscode-divider></vscode-divider>");

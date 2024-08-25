@@ -22,7 +22,6 @@ function init(selectedApp, filterValue) {
   const $appFilterInput = document.getElementById("app-list-filter-input");
   const $appFolderLocationBtn = document.getElementById("app-folder-location-btn");
   const $appFolderLocation = document.getElementById("app-folder-location");
-  const $copyConfigBtn = document.getElementById("copy-config");
 
   const setCommand = () => {
     const fields = Object.fromEntries(
@@ -123,11 +122,6 @@ function init(selectedApp, filterValue) {
         command: this.dataset.command,
       });
     });
-  });
-
-  // On Copy config button click
-  $copyConfigBtn.addEventListener("click", function () {
-    vscode.postMessage({ action: "copy-config" });
   });
 
   // On Click op Copy Button Copy Command

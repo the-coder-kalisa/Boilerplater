@@ -86,10 +86,7 @@ export default class Webview {
         this.#copyCommand(message.command);
         return;
       }
-      case 'copy-config': {
-        this.#copyConfig();
-        return;
-      }
+
       case 'execute-create-command': {
         const command = new Command(
           message.command,
@@ -100,11 +97,6 @@ export default class Webview {
         return;
       }
     }
-  };
-
-  #copyConfig = () => {
-    vscode.env.clipboard.writeText(JSON.stringify(this.#selectedApp, null, vscode.window.activeTextEditor?.options.tabSize || "\t"));
-    vscode.window.showInformationMessage(`${this.#selectedApp.appName} App config is copied to clipboard 📋`);
   };
 
   #copyCommand = (command: string) => {
