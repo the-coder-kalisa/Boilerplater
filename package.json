@@ -4,9 +4,9 @@
   "description": "Effortlessly scaffold project structures within Visual Studio Code using this versatile boilerplate generator! Say goodbye to tedious setup and hello to instant project kickstarts. Simplify your workflow with VS Code Boilerplate, your go-to solution for efficient project initialization.",
   "version": "0.0.1",
   "license": "MIT",
-  "publisher": "Giovanni",
+  "publisher": "Giovanni-Curry",
   "author": {
-    "name": "Giovanni",
+    "name": "KALISA INEZA Giovanni",
     "email": "gthecoderkalisaineza@gmail.com"
   },
   "icon": "media/images/bp-logo.png",

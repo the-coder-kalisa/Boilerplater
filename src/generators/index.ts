@@ -90,8 +90,9 @@ export const generateInfoContainers = (
   const prerequisites =
     selectedApp.prerequisites
       ?.map((p) => {
-        if (p.href)
+        if (p.href) {
           return `<a title="${p.description}" href="${p.href}" class="tag anchor-tag">${p.label}</a>`;
+        }
         return `<span title="${p.description}" data-command="${p.command}" class="tag command-tag">${p.label}</span>`;
       })
       .join("") || "";
