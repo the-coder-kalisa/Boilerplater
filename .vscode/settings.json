@@ -1,41 +1,23 @@
-// Place your settings in this file to overwrite default and user settings.
 {
-    "files.exclude": {
-      "out": false, // set this to true to hide the "out" folder with the compiled JS files
-      "dist": false // set this to true to hide the "dist" folder with the compiled JS files
-    },
-    "search.exclude": {
-      "out": true, // set this to false to include "out" folder in search results
-      "dist": true // set this to false to include "dist" folder in search results
-    },
-    // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
-    "typescript.tsc.autoDetect": "off",
-    "cSpell.words": [
-      "cnpm",
-      "colortheme",
-      "degit",
-      "expressgenerator",
-      "expressjs",
-      "extensionpack",
-      "hybridapp",
-      "Keymap",
-      "mobileapp",
-      "nestjs",
-      "nodeserver",
-      "nosources",
-      "PREACT",
-      "pythonwebapp",
-      "qwik",
-      "reactnative",
-      "searchbox",
-      "Sidemenu",
-      "startproject",
-      "sveltekit",
-      "textbox",
-      "VASH",
-      "vsceignore",
-      "vscodeextension"
-    ],
-    "conventionalCommits.scopes": ["Updated App cli configurations"]
+  "search.exclude": {
+    "**/.sst": true
+  },
+  "task.allowAutomaticTasks": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "debug.openDebug": "neverOpen",
+  "problems.autoReveal": true,
+  "terminal.integrated.hideOnStartup": "always",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.inheritEnv": false,
+  "jestrunner.configPath": "jest.unit.config.cjs",
+  "compile-hero.disable-compile-files-on-did-save-code": true,
+  "tasks": {
+    "label": "lint on open",
+    "type": "shell",
+    "command": "npm run lint",
+    "runOn": "folderOpen"
   }
-  
+}

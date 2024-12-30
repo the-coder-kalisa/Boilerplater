@@ -12,7 +12,7 @@
   "icon": "media/images/bp-logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/the-coder-kalisa/boilerplater.git"
+    "url": "https://github.com/parallax-kal/boilerplater.git"
   },
   "engines": {
     "vscode": "^1.85.0"
